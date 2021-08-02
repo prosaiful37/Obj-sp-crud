@@ -1,3 +1,22 @@
+<?php require_once "vendor/autoload.php"; ?>
+
+<?php 
+	
+
+	//class use
+	use App\Controller\Student;
+
+	//class instance
+	$student = new Student;
+
+
+
+
+
+
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,15 +42,20 @@
 		$cell = $_POST['cell' ];
 		 
 		//file manage
-		$img = $_FILES['photo'];
+		//$img = $_FILES['photo'];
 
 
-		if (empty($name) || empty($email) || empty($cell) ) {
+
+
+
+
+		if(empty($name) || empty($email) || empty($cell) ) {
 			 $mess = "<p class='alert alert-danger'>All Filds Are required ! <button class='close' data-dismiss='alert'>&times;</button></p>";
 		}else if(!filter_var($email, FILTER_VALIDATE_EMAIL) ) {
 				$mess = "<p class='alert alert-info'> Invalid Email Formate ! <button class='close' data-dismiss='alert'>&times;</button></p>";
 		}else{
 
+			$mess = $student -> addNewStudent($name, $email, $cell);
 		}
 
 
