@@ -42,7 +42,7 @@
 		$cell = $_POST['cell' ];
 		 
 		//file manage
-		//$img = $_FILES['photo'];
+		$img = $_FILES['photo'];
 
 
 
@@ -55,7 +55,7 @@
 				$mess = "<p class='alert alert-info'> Invalid Email Formate ! <button class='close' data-dismiss='alert'>&times;</button></p>";
 		}else{
 
-			$mess = $student -> addNewStudent($name, $email, $cell);
+			$mess = $student -> addNewStudent($name, $email, $cell, $img);
 		}
 
 
@@ -98,7 +98,7 @@
 					</div>
 					<div class="form-group">
 						<label for="">Photo</label>
-						<input name="img" class="form-control" type="file">
+						<input name="photo" class="form-control" type="file">
 					</div>
 					<div class="form-group">
 						<input name="submit" class="btn btn-primary" type="submit" value="Sign Up">

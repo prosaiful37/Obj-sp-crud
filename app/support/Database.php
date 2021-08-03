@@ -29,10 +29,39 @@
 			return $this -> connection = new mysqli($this -> host, $this -> user, $this -> pass, $this -> db);
 		}
 
-		/**
-		 * data inset
-		 */
 
+		/**
+		 * File upload management 
+		 */
+		public function fileUpload($file, $location = '', array $file_type = ['jpg','png','jpeg','gif'])
+		{
+			//file info
+			$file_name = $file['name'];
+			$file_tmp = $file['tmp_name'];
+			$file_size = $file['size'];
+
+			//get file extension 
+			$file_array = explode('.', $file_name);
+			$file_extension = strtolower(end($file_array));
+
+			//Unique file_name
+			$unique_file_name = md5(time(). rand()) .'.'.$file_extension;
+
+			//fileUpload
+			move_uploaded_file($file_tmp, $location . $unique_file_name);
+
+			return $unique_file_name; 
+
+		}
+
+
+
+
+
+
+		/**
+		 * data inset by table
+		 */
 		protected function insert($table, array $data)
 		{
 
@@ -63,6 +92,17 @@
 				return true;
 			}
 		}
+
+
+
+
+
+
+
+
+
+
+
 	}
 	
 	
