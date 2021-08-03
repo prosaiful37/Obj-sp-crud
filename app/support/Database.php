@@ -33,7 +33,7 @@
 		/**
 		 * File upload management 
 		 */
-		public function fileUpload($file, $location = '', array $file_type = ['jpg','png','jpeg','gif'])
+		protected function fileUpload($file, $location = '', array $file_type = ['jpg','png','jpeg','gif'])
 		{
 			//file info
 			$file_name = $file['name'];
@@ -92,6 +92,22 @@
 				return true;
 			}
 		}
+
+
+		/**
+		 * get all data
+		 */
+		protected function all($table, $order_by)
+		{
+			//Data get
+			$sql = "SELECT * FROM $table ORDER BY id $order_by ";
+			$data = $this -> connection() -> query($sql);
+
+			if ($data) {
+				return $data;
+			}
+		}
+
 
 
 

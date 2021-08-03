@@ -37,6 +37,22 @@
 				return $mess = "<p class='alert alert-success'> Data stable ! <button class='close' data-dismiss='alert'>&times;</button></p>";
 			}
 		}
+
+
+
+
+		/**
+		 * get all data show
+		 */
+
+		public function AllStudent()
+		{
+			$data = $this -> all('students', 'DESC');
+
+			if ($data) {
+				return $data;
+			}
+		}
 		
 	}
 	
