@@ -109,6 +109,20 @@
 		}
 
 
+		/**
+		 * Delete studnet
+		 */
+		public function delete($table, $id)
+		{
+			$sql = "DELETE FROM students WHERE id='$id'";
+			$data = $this -> connection() -> query($sql);
+
+			if ($data) {
+				return true;
+			}
+		}
+
+
 
 
 

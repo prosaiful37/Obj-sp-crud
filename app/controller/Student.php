@@ -34,7 +34,7 @@
 
 			//Data send msg
 			if ($data) {
-				return $mess = "<p class='alert alert-success'> Data stable ! <button class='close' data-dismiss='alert'>&times;</button></p>";
+				return "<p class='alert alert-success'> Data stable ! <button class='close' data-dismiss='alert'>&times;</button></p>";
 			}
 		}
 
@@ -52,6 +52,20 @@
 			if ($data) {
 				return $data;
 			}
+		}
+
+
+		/**
+		 * Delete single student
+		 */
+		public function deleteStudent($id)
+		{
+			$data = $this -> delete('students', $id);
+
+			if ($data) {
+				return "<p class='alert alert-success'> Data Delete Successful ! <button class='close' data-dismiss='alert'>&times;</button></p>";
+			}
+
 		}
 		
 	}

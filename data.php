@@ -9,7 +9,12 @@
 	//class instance
 	$student = new Student;
 
+	//data delete
+	if (isset($_GET['delete'])) {
+		$id = $_GET['delete'];
 
+		$mess = $student -> deleteStudent($id);
+	}
 
 
 
@@ -32,6 +37,14 @@
 	
 
 	<div class="wrap-table ">
+		<?php 
+			if (isset($mess)) {
+				echo $mess;
+			}
+
+
+
+		 ?>
 		<a class="btn btn-info btn-sm" href="index.php">Add Data</a>
 		<div class="card shadow">
 			<div class="card-body">
@@ -39,7 +52,7 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>#</th>
+							<th>S/no</th>
 							<th>Name</th>
 							<th>Email</th>
 							<th>Cell</th>
@@ -55,11 +68,12 @@
 
 							$data = $student -> AllStudent();
 
+							$i = 1;
 							while ($students = $data -> fetch_assoc()) : 
 
 
 
-
+							
 
 
 
@@ -72,7 +86,7 @@
 
 
 						<tr>
-							<td>1</td>
+							<td><?php echo $i; $i++; ?></td>
 							<td><?php echo $students['name']; ?></td>
 							<td><?php echo $students['email']; ?></td>
 							<td><?php echo $students['cell']; ?></td>
@@ -80,7 +94,7 @@
 							<td>
 								<a class="btn btn-sm btn-info" href="#">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
+								<a class="btn btn-sm btn-danger" href="?delete=<?php echo $students['id']; ?>">Delete</a>
 							</td>
 						</tr>
 					<?php endwhile; ?>
