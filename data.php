@@ -92,7 +92,7 @@
 							<td><?php echo $students['cell']; ?></td>
 							<td><img src="media/img/student/<?php echo $students['photo']; ?>" alt=""></td>
 							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
+								<a class="btn btn-sm btn-info" href="show.php?id=<?php echo $students['id']; ?>">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
 								<a class="btn btn-sm btn-danger" href="?delete=<?php echo $students['id']; ?>">Delete</a>
 							</td>

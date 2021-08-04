@@ -16,11 +16,6 @@
 		public function addNewStudent($name, $email, $cell, $img)
 		{
 
-			// //file upload
-			// $this -> fileUpload($img, 'media/img/student/');
-
-
-
 			//Data send
 			$data = $this -> insert('students', [
 
@@ -67,6 +62,20 @@
 			}
 
 		}
+
+ 		/**
+ 		 * single student show
+ 		 */
+
+ 		public function singleStudent($id)
+ 		{
+ 			$data = $this -> find('students' , $id);
+ 			return $data -> fetch_assoc();
+ 		}
+ 
+ 
+ 
+
 		
 	}
 	

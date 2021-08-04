@@ -112,13 +112,28 @@
 		/**
 		 * Delete studnet
 		 */
-		public function delete($table, $id)
+		protected function delete($table, $id)
 		{
 			$sql = "DELETE FROM students WHERE id='$id'";
 			$data = $this -> connection() -> query($sql);
 
 			if ($data) {
 				return true;
+			}
+		}
+
+
+		/**
+		 * sigle student data show
+		 */
+
+		protected function find($table, $id)
+		{
+			$sql = "SELECT * FROM students WHERE id='$id'";
+			$data = $this -> connection() -> query($sql);
+
+			if ($data) {
+				return $data;
 			}
 		}
 
